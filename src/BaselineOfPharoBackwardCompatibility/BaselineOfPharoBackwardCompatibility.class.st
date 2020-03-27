@@ -10,11 +10,11 @@ Class {
 { #category : #baseline }
 BaselineOfPharoBackwardCompatibility >> baseline: spec [
 	<baseline>
-	spec
-		for: #common
-		do: [ spec for: (self pharoVersionsFrom: 6) do: [ spec package: 'PharoBackwardCompatibility-UpTo6' ].
-			spec for: (self pharoVersionsFrom: 7) do: [ spec package: 'PharoBackwardCompatibility-UpTo7' ].
-			spec for: (self pharoVersionsFrom: 8) do: [ spec package: 'PharoBackwardCompatibility-UpTo8' ] ]
+	spec for: (self pharoVersionsFrom: 6) do: [ spec package: 'PharoBackwardCompatibility-UpTo6' ].
+
+	spec for: (self pharoVersionsFrom: 7) do: [ spec package: 'PharoBackwardCompatibility-UpTo7' ].
+
+	spec for: (self pharoVersionsFrom: 8) do: [ spec package: 'PharoBackwardCompatibility-UpTo8' ]
 ]
 
 { #category : #baselines }
