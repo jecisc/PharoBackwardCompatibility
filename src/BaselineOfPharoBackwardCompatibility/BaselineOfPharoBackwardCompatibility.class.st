@@ -24,5 +24,7 @@ BaselineOfPharoBackwardCompatibility >> pharoVersionsFrom: aVersion [
 
 { #category : #accessing }
 BaselineOfPharoBackwardCompatibility >> projectClass [
-	^ MetacelloCypressBaselineProject
+	^ [ self class environment at: #MetacelloCypressBaselineProject ]
+		on: NotFound
+		do: [ super projectClass ]
 ]
