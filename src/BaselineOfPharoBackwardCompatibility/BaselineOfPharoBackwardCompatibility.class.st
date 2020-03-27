@@ -10,16 +10,18 @@ Class {
 { #category : #baseline }
 BaselineOfPharoBackwardCompatibility >> baseline: spec [
 	<baseline>
-	spec for: (self pharoVersionsFrom: 6) do: [ spec package: 'PharoBackwardCompatibility-UpTo6' ].
+	spec for: (self pharoVersionsUpTo: 6) do: [ spec package: 'PharoBackwardCompatibility-UpTo6' ].
 
-	spec for: (self pharoVersionsFrom: 7) do: [ spec package: 'PharoBackwardCompatibility-UpTo7' ].
+	spec for: (self pharoVersionsUpTo: 7) do: [ spec package: 'PharoBackwardCompatibility-UpTo7' ].
 
-	spec for: (self pharoVersionsFrom: 8) do: [ spec package: 'PharoBackwardCompatibility-UpTo8' ]
+	spec for: (self pharoVersionsUpTo: 8) do: [ spec package: 'PharoBackwardCompatibility-UpTo8' ]
 ]
 
 { #category : #baselines }
-BaselineOfPharoBackwardCompatibility >> pharoVersionsFrom: aVersion [
-	^ (aVersion to: SystemVersion current major) collect: [ :v | ('pharo' , v asString , '.x') asSymbol ]
+BaselineOfPharoBackwardCompatibility >> pharoVersionsUpTo: aVersion [
+	^ SystemVersion current major > aVersion
+		ifTrue: [ #() ]
+		ifFalse: [ {('pharo' , SystemVersion current major asString , '.x')} ]
 ]
 
 { #category : #accessing }
