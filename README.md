@@ -50,6 +50,7 @@ This brings mutiple features to Pharo <= 7.
 - `Boolean>>#threeWayCompareTo:` allows one to compare two booleans. This is use for sort function. It allows on to write: `#(1 2 3 4) sort: #even ascending`.
 - `TestAsserter>>#assertEmpty:` allows one to assert that a collection is empty.
 - `TestAsserter>>#denyEmpty:` allows one to assert that a collection is not empty.
+- `SequenceableCollection>>#bind:` extracts items from the receiving sequenceable collection and use them as argumeents of a block.
 
 ### This brings mutiple features to Pharo <= 8.
 
