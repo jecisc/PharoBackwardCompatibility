@@ -38,6 +38,7 @@ Pharo backward compatibility brings multiple features to different versions of P
 This brings mutiple features to Pharo <= 6.
 
 - `EpMonitor class>>#disableDuring:` allows one to disable Epicea during the execution of a block.
+- `TestAsserter>>#assert:identicalTo:`  allows one to assert that a value is identical to another (pointer identity equivalent to the use of `==`).
 - `TestAsserter>>#deny:equals:` allows one to assert that a value is not equal to another.
 - `TestAsserter>>#deny:identicalTo:`  allows one to assert that a value is not identical to another.
 
