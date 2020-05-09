@@ -37,7 +37,6 @@ Pharo backward compatibility brings multiple features to different versions of P
 
 This brings mutiple features to Pharo <= 6.
 
-- `EpMonitor class>>#disableDuring:` allows one to disable Epicea during the execution of a block.
 - `TestAsserter>>#assert:identicalTo:`  allows one to assert that a value is identical to another (pointer identity equivalent to the use of `==`).
 - `TestAsserter>>#deny:equals:` allows one to assert that a value is not equal to another.
 - `TestAsserter>>#deny:identicalTo:`  allows one to assert that a value is not identical to another.
@@ -46,6 +45,7 @@ This brings mutiple features to Pharo <= 6.
 
 This brings mutiple features to Pharo <= 7.
 
+- `EpMonitor class>>#disableDuring:` allows one to disable Epicea during the execution of a block.
 - `Behavior>>#compiledMethodAt:ifPresent:` allows one to act if a method is present in a class.
 - `Boolean>>#threeWayCompareTo:` allows one to compare two booleans. This is use for sort function. It allows on to write: `#(1 2 3 4) sort: #even ascending`.
 - `TestAsserter>>#assertEmpty:` allows one to assert that a collection is empty.

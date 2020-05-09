@@ -1,6 +1,6 @@
 Extension { #name : #EpMonitor }
 
-{ #category : #'*PharoBackwardCompatibility-UpTo6' }
+{ #category : #'*PharoBackwardCompatibility-UpTo7' }
 EpMonitor >> disableDuring: aBlock [
 	"Disable all logging during the execution of a block.
 	
@@ -14,7 +14,7 @@ EpMonitor >> disableDuring: aBlock [
 		ensure: [ self enabled: currentStatus ]
 ]
 
-{ #category : #'*PharoBackwardCompatibility-UpTo6' }
+{ #category : #'*PharoBackwardCompatibility-UpTo7' }
 EpMonitor class >> disableDuring: aBlock [
 	"Disable the default monitor during the execution of a block"
 	
