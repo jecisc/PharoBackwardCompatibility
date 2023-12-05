@@ -14,7 +14,9 @@ BaselineOfPharoBackwardCompatibility >> baseline: spec [
 
 	spec for: (self pharoVersionsUpTo: 7) do: [ spec package: 'PharoBackwardCompatibility-UpTo7' ].
 
-	spec for: (self pharoVersionsUpTo: 8) do: [ spec package: 'PharoBackwardCompatibility-UpTo8' ]
+	spec for: (self pharoVersionsUpTo: 8) do: [ spec package: 'PharoBackwardCompatibility-UpTo8' ].
+	
+	spec for: (self pharoVersionsUpTo: 12) do: [ spec package: 'PharoBackwardCompatibility-UpTo12' ]
 ]
 
 { #category : #baselines }

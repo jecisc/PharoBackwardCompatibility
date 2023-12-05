@@ -2,11 +2,16 @@
 
 Chanel is a code cleaner for Pharo. 
 
-- [Installation](#installation)
-- [Documentation](#documentation)
-- [Version management](#version-management)
-- [Smalltalk versions compatibility](#smalltalk-versions-compatibility)
-- [Contact](#contact)
+- [Pharo Backward Compatibility](#pharo-backward-compatibility)
+	- [Installation](#installation)
+	- [Documentation](#documentation)
+		- [Up to Pharo 6](#up-to-pharo-6)
+		- [Up to Pharo 7](#up-to-pharo-7)
+		- [Up to Pharo 8](#up-to-pharo-8)
+		- [Up to Pharo 12](#up-to-pharo-12)
+	- [Version management](#version-management)
+	- [Smalltalk versions compatibility](#smalltalk-versions-compatibility)
+	- [Contact](#contact)
 
 ## Installation
 
@@ -52,11 +57,15 @@ This brings mutiple features to Pharo <= 7.
 - `TestAsserter>>#denyEmpty:` allows one to assert that a collection is not empty.
 - `SequenceableCollection>>#bind:` extracts items from the receiving sequenceable collection and use them as argumeents of a block.
 
-### This brings mutiple features to Pharo <= 8.
+### Up to Pharo 8
 
 - `AbstractFileReference>>#ifExists:` allows one to execute a block only if a file exists.
 - `AbstractFileReference>>#ifAbsent:` allows one to execute a block only if a file does not exists.
 - `AbstractFileReference>>#ifExists:ifAbsent:` allows one to execute a different code if a file exist or not.
+
+### Up to Pharo 12
+
+- `Object>>#packageOrganizer` and `Behavior>>#packageOrganizer` allows to access the package organizer of a class. This replaces `RPackage default` or `RpackageOrgarizer default` or also the global variable `SystemOrganization` that are all deprecated in Pharo 12.
 
 ## Version management 
 
@@ -74,8 +83,8 @@ Thus, it should be safe to depend on a fixed major version and moving minor vers
 
 | Version 	| Compatible Pharo versions 		|
 |-------------	|---------------------------	|
-| 1.x.x       	| Pharo 61, 70, 80, 90, 10				|
+| 1.x.x       	| Pharo 61, 70, 80, 90, 10, 11, 12				|
 
 ## Contact
 
-If you have any questions or problems do not hesitate to open an issue or contact cyril (a) ferlicot.me 
+If you have any questions or problems do not hesitate to open an issue or contact cyril (a) ferlicot.fr

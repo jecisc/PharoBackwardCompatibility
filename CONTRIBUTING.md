@@ -14,17 +14,9 @@ When a release contains only bug fixes, the patch number increases. When the rel
 
 Thus, it should be safe to depend on a fixed major version and moving minor version of this project.
 
-# Branch management 
-
-This project use gitflow management.
-
-This project contains two main branches:
-- **master** : This branch is a stable branch. Each version on this branch should be a stable release of the project, and ideally each commit modifying the source code of the project should be tagged with a version number.
-- **development** : This branch contains the current development of this project. 
-
 ## New feature 
 
-When a new feature will take some time to implement, this feature should be developed in a specific branch. Once done, it will be merged in development before the next release of Material Design Lite for Seaside.
+When a new feature will take some time to implement, this feature should be developed in a specific branch. Once done, it will be merged in development before the next release of the project.
 
 ## Hot fix
 
