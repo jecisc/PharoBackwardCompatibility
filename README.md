@@ -66,6 +66,8 @@ This brings mutiple features to Pharo <= 7.
 ### Up to Pharo 12
 
 - `Object>>#packageOrganizer` and `Behavior>>#packageOrganizer` allows to access the package organizer of a class. This replaces `RPackage default` or `RpackageOrgarizer default` or also the global variable `SystemOrganization` that are all deprecated in Pharo 12.
+- `RPackageOrganizer>>#ensurePackage:` allows one to ensure that a package is created in the organizer by providing a name or a package.
+- `Class>>#packageTag`/`Metaclass>>#packageTag` returns an instance of `RPackageTag` corresponding to the tag of the class.
 
 ## Version management 
 
