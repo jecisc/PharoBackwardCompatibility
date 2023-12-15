@@ -1,0 +1,11 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'PharoBackwardCompatibility',
+      #directory : 'src'
+    }
+  ],  
+  #testing : {
+    #failOnZeroTests : false
+}
+}
