@@ -1,6 +1,6 @@
 Extension { #name : #RPackageOrganizer }
 
-{ #category : #'*PharoBackwardCompatibility-UpTo12' }
+{ #category : #'*PharoBackwardCompatibility-UpTo11' }
 RPackageOrganizer >> ensurePackage: aPackage [
 
 	| package |

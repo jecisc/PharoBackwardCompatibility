@@ -8,7 +8,7 @@ Chanel is a code cleaner for Pharo.
 		- [Up to Pharo 6](#up-to-pharo-6)
 		- [Up to Pharo 7](#up-to-pharo-7)
 		- [Up to Pharo 8](#up-to-pharo-8)
-		- [Up to Pharo 12](#up-to-pharo-12)
+		- [Up to Pharo 11](#up-to-pharo-11)
 	- [Version management](#version-management)
 	- [Smalltalk versions compatibility](#smalltalk-versions-compatibility)
 	- [Contact](#contact)
@@ -59,11 +59,15 @@ This brings mutiple features to Pharo <= 7.
 
 ### Up to Pharo 8
 
+This brings mutiple features to Pharo <= 8.
+
 - `AbstractFileReference>>#ifExists:` allows one to execute a block only if a file exists.
 - `AbstractFileReference>>#ifAbsent:` allows one to execute a block only if a file does not exists.
 - `AbstractFileReference>>#ifExists:ifAbsent:` allows one to execute a different code if a file exist or not.
 
-### Up to Pharo 12
+### Up to Pharo 11
+
+This brings mutiple features to Pharo <= 11.
 
 - `Object>>#packageOrganizer` and `Behavior>>#packageOrganizer` allows to access the package organizer of a class. This replaces `RPackage default` or `RpackageOrgarizer default` or also the global variable `SystemOrganization` that are all deprecated in Pharo 12.
 - `RPackageOrganizer>>#ensurePackage:` allows one to ensure that a package is created in the organizer by providing a name or a package.
