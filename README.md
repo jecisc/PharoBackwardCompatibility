@@ -71,6 +71,7 @@ This brings mutiple features to Pharo <= 11.
 
 - `Object>>#packageOrganizer` and `Behavior>>#packageOrganizer` allows to access the package organizer of a class. This replaces `RPackage default` or `RpackageOrgarizer default` or also the global variable `SystemOrganization` that are all deprecated in Pharo 12.
 - `RPackageOrganizer>>#ensurePackage:` allows one to ensure that a package is created in the organizer by providing a name or a package.
+- `RPackageOrganizer>>#hasPackage:` allows one to know if a package is in the organizer by providing a name or a package.
 - `Class>>#packageTag`/`Metaclass>>#packageTag` returns an instance of `RPackageTag` corresponding to the tag of the class.
 - `ShiftClassBuilder>>#traits:` allows to set the trait composition of a class builder with the same API than the fluid syntax (In P12 FluidClassBuilder and ShiftClassBuilder are merged).
 - `ShiftClassBuilder>>#tag:` allows to set the tag of a class. This will happend the tag to the category name with a dash because P11 is not able to really manipulate the tags but this should make the API compatible between P12 and P11. Note that this method should be called after #package: or #category: since it happens the tag to what is already set. 
