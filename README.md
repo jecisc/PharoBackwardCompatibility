@@ -76,6 +76,7 @@ This brings mutiple features to Pharo <= 11.
 - `ShiftClassBuilder>>#traits:` allows to set the trait composition of a class builder with the same API than the fluid syntax (In P12 FluidClassBuilder and ShiftClassBuilder are merged).
 - `ShiftClassBuilder>>#tag:` allows to set the tag of a class. This will happend the tag to the category name with a dash because P11 is not able to really manipulate the tags but this should make the API compatible between P12 and P11. Note that this method should be called after #package: or #category: since it happens the tag to what is already set. 
 - `CompiledMethod>>protocolName` allows one to get the protocol name of a method. Up to P11 #protocol was returning the name, but in P12 it returns the real protocol object.
+- `Behavior/TraitedClass/TraitedMetaclass>>includesTrait:` allows to know if a class includes a specific trait. I also backported a speed up of this method.
 
 ## Version management 
 
