@@ -20,3 +20,9 @@ RPackageOrganizer >> hasPackage: aPackage [
 			  ^ true ]
 		  ifFalse: [ self packages includes: aPackage ]
 ]
+
+{ #category : #'*PharoBackwardCompatibility-UpTo11' }
+RPackageOrganizer >> packageNamed: aString ifPresent: aBlock [
+
+	^ (self packageNamed: aString ifAbsent: [ nil ]) ifNotNil: [ :package | aBlock cull: package ]
+]
