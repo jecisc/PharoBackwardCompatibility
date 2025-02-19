@@ -9,6 +9,7 @@ Chanel is a code cleaner for Pharo.
 		- [Up to Pharo 7](#up-to-pharo-7)
 		- [Up to Pharo 8](#up-to-pharo-8)
 		- [Up to Pharo 11](#up-to-pharo-11)
+		- [Up to Pharo 12](#up-to-pharo-12)
 	- [Version management](#version-management)
 	- [Smalltalk versions compatibility](#smalltalk-versions-compatibility)
 	- [Contact](#contact)
@@ -78,6 +79,13 @@ This brings mutiple features to Pharo <= 11.
 - `ShiftClassBuilder>>#tag:` allows to set the tag of a class. This will happend the tag to the category name with a dash because P11 is not able to really manipulate the tags but this should make the API compatible between P12 and P11. Note that this method should be called after #package: or #category: since it happens the tag to what is already set. 
 - `CompiledMethod>>protocolName` allows one to get the protocol name of a method. Up to P11 #protocol was returning the name, but in P12 it returns the real protocol object.
 - `Behavior/TraitedClass/TraitedMetaclass>>includesTrait:` allows to know if a class includes a specific trait. I also backported a speed up of this method.
+
+
+### Up to Pharo 12
+
+This brings features to Pharo <= 12.
+
+- `String>>#withPlatformLineEndings` allows to replace the line returns of a String by the ones used by the current platform.
 
 ## Version management 
 

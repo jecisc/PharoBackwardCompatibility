@@ -1,1 +1,1 @@
-Package { #name : #BaselineOfPharoBackwardCompatibility }
+Package { #name : 'BaselineOfPharoBackwardCompatibility' }
