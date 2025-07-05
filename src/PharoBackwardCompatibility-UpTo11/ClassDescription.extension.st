@@ -1,7 +1,7 @@
 Extension { #name : #ClassDescription }
 
 { #category : #'*PharoBackwardCompatibility-UpTo11' }
-TraitedClass >> protocolNamed: aString [
+ClassDescription >> protocolNamed: aString [
 	"In Pharo11 when a protocol is asked, system return a symbol"
 
 	"i.e.: 
