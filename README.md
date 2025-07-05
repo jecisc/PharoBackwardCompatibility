@@ -79,6 +79,7 @@ This brings mutiple features to Pharo <= 11.
 - `ShiftClassBuilder>>#tag:` allows to set the tag of a class. This will happend the tag to the category name with a dash because P11 is not able to really manipulate the tags but this should make the API compatible between P12 and P11. Note that this method should be called after #package: or #category: since it happens the tag to what is already set. 
 - `CompiledMethod>>protocolName` allows one to get the protocol name of a method. Up to P11 #protocol was returning the name, but in P12 it returns the real protocol object.
 - `Behavior/TraitedClass/TraitedMetaclass>>includesTrait:` allows to know if a class includes a specific trait. I also backported a speed up of this method.
+- `ClassDescription >> protocolNamed:` allows one to get a Protocol object from its name.
 
 
 ### Up to Pharo 12
@@ -102,8 +103,8 @@ Thus, it should be safe to depend on a fixed major version and moving minor vers
 ## Smalltalk versions compatibility
 
 | Version 	| Compatible Pharo versions 		|
-|-------------	|---------------------------	|
-| 1.x.x       	| Pharo 61, 70, 80, 90, 10, 11, 12				|
+|-------------	|---------------------------		|
+| 1.x.x       	| Pharo 61, 70, 80, 90, 10, 11, 12, 13	|
 
 ## Contact
 
