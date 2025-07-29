@@ -87,6 +87,7 @@ This brings mutiple features to Pharo <= 11.
 This brings features to Pharo <= 12.
 
 - `String>>#withPlatformLineEndings` allows to replace the line returns of a String by the ones used by the current platform.
+- `SpTActionContainer>>e#nsureInternalActions` allows to stay compatible with the rename of `#ensureActionGroup`.
 
 ## Version management 
 
