@@ -80,6 +80,7 @@ This brings mutiple features to Pharo <= 11.
 - `CompiledMethod>>protocolName` allows one to get the protocol name of a method. Up to P11 #protocol was returning the name, but in P12 it returns the real protocol object.
 - `Behavior/TraitedClass/TraitedMetaclass>>includesTrait:` allows to know if a class includes a specific trait. I also backported a speed up of this method.
 - `ClassDescription >> protocolNamed:` allows one to get a Protocol object from its name.
+- `Pragma>>hasArgument:` allows one to know if a pragma has a specific argument.
 
 
 ### Up to Pharo 12
