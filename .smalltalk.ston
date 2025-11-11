@@ -4,8 +4,5 @@ SmalltalkCISpec {
       #baseline : 'PharoBackwardCompatibility',
       #directory : 'src'
     }
-  ],  
-  #testing : {
-    #failOnZeroTests : false
-}
+  ]
 }

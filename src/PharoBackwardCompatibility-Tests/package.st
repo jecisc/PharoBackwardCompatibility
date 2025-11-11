@@ -1,0 +1,1 @@
+Package { #name : 'PharoBackwardCompatibility-Tests' }
