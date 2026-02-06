@@ -10,6 +10,7 @@ Chanel is a code cleaner for Pharo.
 		- [Up to Pharo 8](#up-to-pharo-8)
 		- [Up to Pharo 11](#up-to-pharo-11)
 		- [Up to Pharo 12](#up-to-pharo-12)
+		- [Up to Pharo 13](#up-to-pharo-13)
 	- [Version management](#version-management)
 	- [Smalltalk versions compatibility](#smalltalk-versions-compatibility)
 	- [Contact](#contact)
@@ -90,6 +91,12 @@ This brings features to Pharo <= 12.
 - `String>>#withPlatformLineEndings` allows to replace the line returns of a String by the ones used by the current platform.
 - `SpTActionContainer>>e#nsureInternalActions` allows to stay compatible with the rename of `#ensureActionGroup`.
 
+### Up to Pharo 13
+
+This brings features to Pharo <= 13.
+
+- `ZnCharacterEncoder>>#numberOfCharactersFrom:` allows to know the number of characters represented by a byte array.
+
 ## Version management 
 
 This project use semantic versioning to define the releases. This means that each stable release of the project will be assigned a version number of the form `vX.Y.Z`. 
@@ -106,7 +113,7 @@ Thus, it should be safe to depend on a fixed major version and moving minor vers
 
 | Version 	| Compatible Pharo versions 		|
 |-------------	|---------------------------		|
-| 1.x.x       	| Pharo 61, 70, 80, 90, 10, 11, 12, 13	|
+| 1.x.x       	| Pharo 61, 70, 80, 90, 10, 11, 12, 13, 14	|
 
 ## Contact
 
