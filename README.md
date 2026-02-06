@@ -90,6 +90,7 @@ This brings features to Pharo <= 12.
 
 - `String>>#withPlatformLineEndings` allows to replace the line returns of a String by the ones used by the current platform.
 - `SpTActionContainer>>e#nsureInternalActions` allows to stay compatible with the rename of `#ensureActionGroup`.
+- `Color class>>#R:G:B:`, `Color class>>#R:G:B:A:`, `Color>>#contrast:`, `Color>>#isContrastCompliantForISO92413:`, `Color>>#isContrastCompliantForWCAG2AA:`, `Color>>#isContrastCompliantForWCAG2AAA:`, `Color>>#relativeLuminance` : Those methods are conveniance methods introduced on Color in Pharo 13.
 
 ### Up to Pharo 13
 
