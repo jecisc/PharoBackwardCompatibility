@@ -97,7 +97,8 @@ This brings features to Pharo <= 12.
 This brings features to Pharo <= 13.
 
 - `ZnCharacterEncoder>>#numberOfCharactersFrom:` allows to know the number of characters represented by a byte array.
-- `ZnCharacterEncoder>>#forwardOnStream:` allows to skip one character in a binary stream depending on the encodage
+- `ZnCharacterEncoder>>#forwardOnStream:` allows to skip one character in a binary stream depending on the encodage.
+- `Object>>#threeWayCompareTo:` allows to compare any entity even if they do not override the method.
 
 ## Version management 
 
