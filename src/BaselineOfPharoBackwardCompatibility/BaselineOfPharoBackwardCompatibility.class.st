@@ -33,6 +33,12 @@ BaselineOfPharoBackwardCompatibility >> baseline: spec [
 ]
 
 { #category : 'baselines' }
+BaselineOfPharoBackwardCompatibility >> isPharoVersion: aVersion [
+
+	^ SystemVersion current major = aVersion
+]
+
+{ #category : 'baselines' }
 BaselineOfPharoBackwardCompatibility >> isPharoVersionUpTo: aVersion [
 
 	^ SystemVersion current major <= aVersion
@@ -49,8 +55,15 @@ BaselineOfPharoBackwardCompatibility >> pharoVersionsUpTo: aVersion [
 { #category : 'baseline' }
 BaselineOfPharoBackwardCompatibility >> postLoad [
 
+	(self isPharoVersion: 12) ifTrue: [ self postLoadOnPharo12 ].
 	(self isPharoVersionUpTo: 12) ifTrue: [ self postLoadUpTo12 ].
 	(self isPharoVersionUpTo: 13) ifTrue: [ self postLoadUpTo13 ]
+]
+
+{ #category : 'baseline' }
+BaselineOfPharoBackwardCompatibility >> postLoadOnPharo12 [
+
+	self class environment at: #OCSyntaxErrorNotice put: (self class environment at: #RBSyntaxErrorNotice)
 ]
 
 { #category : 'baseline' }
