@@ -26,7 +26,10 @@ BaselineOfPharoBackwardCompatibility >> baseline: spec [
 
 	spec for: (self pharoVersionsUpTo: 12) do: [ spec package: 'PharoBackwardCompatibility-UpTo12' ].
 
-	spec for: (self pharoVersionsUpTo: 13) do: [ spec package: 'PharoBackwardCompatibility-UpTo13' ]
+	spec for: (self pharoVersionsUpTo: 13) do: [
+			spec
+				package: 'PharoBackwardCompatibility-UpTo13';
+				postLoadDoIt: #postLoadUpTo13 ]
 ]
 
 { #category : 'baselines' }
@@ -34,6 +37,12 @@ BaselineOfPharoBackwardCompatibility >> pharoVersionsUpTo: aVersion [
 	^ SystemVersion current major > aVersion
 		ifTrue: [ #() ]
 		ifFalse: [ {('pharo' , SystemVersion current major asString , '.x')} ]
+]
+
+{ #category : 'baseline' }
+BaselineOfPharoBackwardCompatibility >> postLoadUpTo13 [
+
+	self class environment at: #ReChangeManager put: (self class environment at: #RBRefactoryChangeManager)
 ]
 
 { #category : 'accessing' }
