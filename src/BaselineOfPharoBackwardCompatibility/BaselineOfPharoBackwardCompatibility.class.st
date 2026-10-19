@@ -53,7 +53,9 @@ BaselineOfPharoBackwardCompatibility >> postLoadUpTo12 [
 { #category : 'baseline' }
 BaselineOfPharoBackwardCompatibility >> postLoadUpTo13 [
 
-	self class environment at: #ReChangeManager put: (self class environment at: #RBRefactoryChangeManager)
+	self class environment at: #ReChangeManager put: (self class environment at: #RBRefactoryChangeManager).
+  
+  self class environment at: #IceBranchAlreadyExists ifPresent: [ :class | self class environment at: #IceBranchAlreadyExistsError put: class ]
 ]
 
 { #category : 'accessing' }
