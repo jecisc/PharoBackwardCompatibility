@@ -12,7 +12,10 @@ Class {
 BaselineOfPharoBackwardCompatibility >> baseline: spec [
 
 	<baseline>
-	spec for: #common do: [ spec package: 'PharoBackwardCompatibility-Tests' ].
+	spec for: #common do: [
+			spec
+				package: 'PharoBackwardCompatibility-Tests';
+				postLoadDoIt: #postLoad ].
 
 	spec for: (self pharoVersionsUpTo: 6) do: [ spec package: 'PharoBackwardCompatibility-UpTo6' ].
 
@@ -24,22 +27,30 @@ BaselineOfPharoBackwardCompatibility >> baseline: spec [
 
 	spec for: #'pharo12.x' do: [ spec package: 'PharoBackwardCompatibility-12' ].
 
-	spec for: (self pharoVersionsUpTo: 12) do: [
-			spec
-				package: 'PharoBackwardCompatibility-UpTo12';
-				postLoadDoIt: #postLoadUpTo12 ].
+	spec for: (self pharoVersionsUpTo: 12) do: [ spec package: 'PharoBackwardCompatibility-UpTo12' ].
 
-	spec for: (self pharoVersionsUpTo: 13) do: [
-			spec
-				package: 'PharoBackwardCompatibility-UpTo13';
-				postLoadDoIt: #postLoadUpTo13 ]
+	spec for: (self pharoVersionsUpTo: 13) do: [ spec package: 'PharoBackwardCompatibility-UpTo13' ]
+]
+
+{ #category : 'baselines' }
+BaselineOfPharoBackwardCompatibility >> isPharoVersionUpTo: aVersion [
+
+	^ SystemVersion current major <= aVersion
 ]
 
 { #category : 'baselines' }
 BaselineOfPharoBackwardCompatibility >> pharoVersionsUpTo: aVersion [
-	^ SystemVersion current major > aVersion
-		ifTrue: [ #() ]
-		ifFalse: [ {('pharo' , SystemVersion current major asString , '.x')} ]
+
+	^ (self isPharoVersionUpTo: aVersion)
+		  ifTrue: [ { ('pharo' , SystemVersion current major asString , '.x') } ]
+		  ifFalse: [ #(  ) ]
+]
+
+{ #category : 'baseline' }
+BaselineOfPharoBackwardCompatibility >> postLoad [
+
+	(self isPharoVersionUpTo: 12) ifTrue: [ self postLoadUpTo12 ].
+	(self isPharoVersionUpTo: 13) ifTrue: [ self postLoadUpTo13 ]
 ]
 
 { #category : 'baseline' }
