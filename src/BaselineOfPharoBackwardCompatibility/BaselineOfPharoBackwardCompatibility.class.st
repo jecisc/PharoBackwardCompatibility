@@ -24,7 +24,10 @@ BaselineOfPharoBackwardCompatibility >> baseline: spec [
 
 	spec for: #'pharo12.x' do: [ spec package: 'PharoBackwardCompatibility-12' ].
 
-	spec for: (self pharoVersionsUpTo: 12) do: [ spec package: 'PharoBackwardCompatibility-UpTo12' ].
+	spec for: (self pharoVersionsUpTo: 12) do: [
+			spec
+				package: 'PharoBackwardCompatibility-UpTo12';
+				postLoadDoIt: #postLoadUpTo12 ].
 
 	spec for: (self pharoVersionsUpTo: 13) do: [
 			spec
@@ -40,11 +43,19 @@ BaselineOfPharoBackwardCompatibility >> pharoVersionsUpTo: aVersion [
 ]
 
 { #category : 'baseline' }
+BaselineOfPharoBackwardCompatibility >> postLoadUpTo12 [
+
+	self class environment
+		at: #RePullUpInstanceVariableRefactoring
+		put: (self class environment at: #RBPullUpInstanceVariableRefactoring)
+]
+
+{ #category : 'baseline' }
 BaselineOfPharoBackwardCompatibility >> postLoadUpTo13 [
 
-	| branchAlreadyExists |
-	branchAlreadyExists := self class environment at: #IceBranchAlreadyExists ifAbsent: [ ^ self ].
-	self class environment at: #IceBranchAlreadyExistsError put: branchAlreadyExists
+	self class environment at: #ReChangeManager put: (self class environment at: #RBRefactoryChangeManager).
+  
+  self class environment at: #IceBranchAlreadyExists ifPresent: [ :class | self class environment at: #IceBranchAlreadyExistsError put: class ]
 ]
 
 { #category : 'accessing' }
