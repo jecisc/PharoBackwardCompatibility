@@ -91,6 +91,7 @@ This brings features to Pharo <= 12.
 - `String>>#withPlatformLineEndings` allows to replace the line returns of a String by the ones used by the current platform.
 - `SpTActionContainer>>e#nsureInternalActions` allows to stay compatible with the rename of `#ensureActionGroup`.
 - `Color class>>#R:G:B:`, `Color class>>#R:G:B:A:`, `Color>>#contrast:`, `Color>>#isContrastCompliantForISO92413:`, `Color>>#isContrastCompliantForWCAG2AA:`, `Color>>#isContrastCompliantForWCAG2AAA:`, `Color>>#relativeLuminance` : Those methods are conveniance methods introduced on Color in Pharo 13.
+- Alias `RBPullUpInstanceVariableRefactoring` into `RePullUpInstanceVariableRefactoring`.
 
 ### Up to Pharo 13
 
@@ -99,6 +100,9 @@ This brings features to Pharo <= 13.
 - `ZnCharacterEncoder>>#numberOfCharactersFrom:` allows to know the number of characters represented by a byte array.
 - `ZnCharacterEncoder>>#forwardOnStream:` allows to skip one character in a binary stream depending on the encodage.
 - `Object>>#threeWayCompareTo:` allows to compare any entity even if they do not override the method.
+- `Context>>temporaryVariableNames` allows to get the name of temporaries in the context (was `#tempNames` before).
+- Alias `RBRefactoryChangeManager` into `ReChangeManager`.
+- Alias `IceBranchAlreadyExistsError` into `IceBranchAlreadyExists`.
 
 ## Version management 
 
