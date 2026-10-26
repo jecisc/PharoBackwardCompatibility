@@ -101,6 +101,7 @@ This brings features to Pharo <= 13.
 - `ZnCharacterEncoder>>#forwardOnStream:` allows to skip one character in a binary stream depending on the encodage.
 - `Object>>#threeWayCompareTo:` allows to compare any entity even if they do not override the method.
 - `Context>>temporaryVariableNames` allows to get the name of temporaries in the context (was `#tempNames` before).
+- `Context>>stackTraceString`, `Context>>printStackTraceOn:`, and `Context>>withSendersDo:` provide Pharo 14 stack traversal and printing through the bottom context.
 - Alias `RBRefactoryChangeManager` into `ReChangeManager`.
 - Alias `IceBranchAlreadyExistsError` into `IceBranchAlreadyExists`.
 
