@@ -1,4 +1,6 @@
 {
 	'srcDirectory' : 'src',
-	'tags' : [ #Jecisc ]
+	'tags' : [
+		#Jecisc
+	]
 }
