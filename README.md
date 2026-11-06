@@ -1,6 +1,8 @@
 # Pharo Backward Compatibility
 
-Chanel is a code cleaner for Pharo. 
+Pharo Backward Compatibility is a project to backport recent Pharo API to older versions of Pharo. 
+
+The goal is to be able to use the latest API without breaking compatibility with previous version of Pharo. Do not hesitate to suggest new methods to backport!
 
 - [Pharo Backward Compatibility](#pharo-backward-compatibility)
 	- [Installation](#installation)
