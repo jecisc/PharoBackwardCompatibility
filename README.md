@@ -13,6 +13,7 @@ The goal is to be able to use the latest API without breaking compatibility with
 		- [Up to Pharo 11](#up-to-pharo-11)
 		- [Up to Pharo 12](#up-to-pharo-12)
 		- [Up to Pharo 13](#up-to-pharo-13)
+		- [Up to Pharo 14](#up-to-pharo-14)
 	- [Version management](#version-management)
 	- [Smalltalk versions compatibility](#smalltalk-versions-compatibility)
 	- [Contact](#contact)
@@ -106,6 +107,12 @@ This brings features to Pharo <= 13.
 - `Context>>stackTraceString`, `Context>>printStackTraceOn:`, and `Context>>withSendersDo:` provide Pharo 14 stack traversal and printing through the bottom context.
 - Alias `RBRefactoryChangeManager` into `ReChangeManager`.
 - Alias `IceBranchAlreadyExistsError` into `IceBranchAlreadyExists`.
+
+### Up to Pharo 14
+
+This brings features to Pharo <= 14.
+
+- `Object>>#traceNewLine`, `Object>>#traceNewLine:`, `Object>>#newLineTrace`, `Object>>#newLineTrace:` and `Object>>#traceNewLineTab:` are the Pharo 15 transcript tracing API that does not depend on the internal line ending of Pharo. They replace `#traceCr`, `#traceCr:`, `#crTrace`, `#crTrace:` and `#traceCrTab:` that are deprecated in Pharo 15.
 
 ## Version management 
 
