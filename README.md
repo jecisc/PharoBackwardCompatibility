@@ -150,6 +150,8 @@ When a release contains only bug fixes, the patch number increases. When the rel
 
 Thus, it should be safe to depend on a fixed major version and moving minor version of this project.
 
+Two tags follow the releases: `vX.Y.x` is the latest release of `X.Y`, and `vX.x.x` the latest release of `X`. The `Floating tags` workflow moves them when a release is published.
+
 ## Smalltalk versions compatibility
 
 | Version 	| Compatible Pharo versions 		|

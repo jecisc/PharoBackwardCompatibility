@@ -1,0 +1,23 @@
+name: Floating tags
+
+# Publishing release vX.Y.Z moves vX.Y.x and vX.x.x to it, unless a later release already holds them.
+
+on:
+  release:
+    types: [ published ]
+
+permissions:
+  contents: write
+
+jobs:
+  move:
+    if: ${{ !github.event.release.prerelease }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - run: .github/scripts/move-floating-tags.sh "$RELEASE"
+        env:
+          RELEASE: ${{ github.event.release.tag_name }}
