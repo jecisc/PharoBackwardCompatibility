@@ -86,10 +86,10 @@ This brings mutiple features to Pharo <= 11.
 - `Behavior/TraitedClass/TraitedMetaclass>>includesTrait:` allows to know if a class includes a specific trait. I also backported a speed up of this method.
 - `ClassDescription >> protocolNamed:` allows one to get a Protocol object from its name.
 - `Pragma>>hasArgument:` allows one to know if a pragma has a specific argument.
-- `ClassDescription>>#packageName` and `ClassDescription>>#packageTagName` return the name of the package and of the package tag of a class.
-- `RPackage>>#tagNames` returns the names of the tags of a package.
+- `ClassDescription>>#packageName` and `ClassDescription>>#packageTagName` return the name of the package and of the package tag of a class. As in Pharo 12, the tag of a class that has none is named `Uncategorized`, where Pharo 11 names it after the package.
+- `RPackage>>#tagNames` returns the names of the tags of a package, with `Uncategorized` for the tag of the classes that have none.
 - `RPackageOrganizer>>#removePackage:` removes a package and its content from the system by providing a name or a package.
-- `RPackage>>#ensureTag:` and `RPackage>>#hasTag:` return the tag of a package, adding it if needed, and tell whether a package has a tag, by providing a name or a tag.
+- `RPackage>>#ensureTag:` and `RPackage>>#hasTag:` return the tag of a package, adding it if needed, and tell whether a package has a tag, by providing a name or a tag. `Uncategorized` names the tag of the classes that have none.
 - `RPackage>>#isUndefined` returns false: Pharo 12 files a class that belongs to no package in an undefined package, and before it every package is defined.
 - `RBMoveClassTransformation class>>#move:toPackage:` and `RBMoveClassTransformation class>>#move:toPackage:inTag:` move a class to a package, and to a tag of it.
 - `BlockClosure>>#valueWithinMilliseconds:onTimeout:` evaluates a block, or the timeout block if it does not complete in the given number of milliseconds.

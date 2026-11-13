@@ -8,9 +8,13 @@ ClassDescription >> packageName [
 
 { #category : #'*PharoBackwardCompatibility-UpTo11' }
 ClassDescription >> packageTagName [
-	"Package tags are sub categories of packages to have a better organization of the packages. I return the name of my package tag."
+	"Package tags are sub categories of packages to have a better organization of the packages. I return the name of my package tag. Pharo 12 names the tag of a class that has none Uncategorized; before it, that tag is named after the package."
 
-	^ self packageTag name
+	| tagName |
+	tagName := self packageTag name.
+	^ tagName = self packageName
+		  ifTrue: [ #Uncategorized ]
+		  ifFalse: [ tagName ]
 ]
 
 { #category : #'*PharoBackwardCompatibility-UpTo11' }
