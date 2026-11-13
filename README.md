@@ -94,6 +94,8 @@ This brings mutiple features to Pharo <= 11.
 - `BlockClosure>>#valueWithinMilliseconds:onTimeout:` evaluates a block, or the timeout block if it does not complete in the given number of milliseconds.
 - `ReAbstractRule>>#shouldCheckMethod:` is the hook a rule answers to skip methods it does not need to check, and answers true.
 - `IceWorkingCopy>>#packageNamed:ifAbsent:` returns the package of a working copy, or the result of a block when it has none by that name.
+- `Variable>>#isPseudoVariable` tells whether a variable is `self`, `super` or `thisContext`, which Pharo 12 calls pseudo-variables and Pharo 11 reserved variables.
+- `ClassDescription>>#whichMethodsAccess:` returns the methods of a class that access an instance variable.
 - Alias `RBRenameClassRefactoring`, `RBRenameMethodRefactoring`, `RBRemoveClassRefactoring` and `RBRemoveInstanceVariableRefactoring` into `ReRenameClassRefactoring`, `ReRenameMethodRefactoring`, `ReRemoveClassRefactoring` and `ReRemoveInstanceVariableRefactoring`.
 
 

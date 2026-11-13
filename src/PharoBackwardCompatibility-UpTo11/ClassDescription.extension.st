@@ -27,3 +27,14 @@ ClassDescription >> protocolNamed: aString [
 	aString ifNil: [ NotFound signalFor: aString ].
 	^ aString asSymbol
 ]
+
+{ #category : #'*PharoBackwardCompatibility-UpTo11' }
+ClassDescription >> whichMethodsAccess: instVarName [
+	"Answer the methods that access the argument, instVarName, as a named instance variable. Pay attention the instVarName variable should be used e.g., be part of a return, message send or assignment else the compiler optimize it away and the method will not return it."
+
+	^ self
+		  slotNamed: instVarName
+		  ifFound: [ :slot |
+		  self methods select: [ :m | slot isAccessedIn: m ] ]
+		  ifNone: [ #(  ) ]
+]
