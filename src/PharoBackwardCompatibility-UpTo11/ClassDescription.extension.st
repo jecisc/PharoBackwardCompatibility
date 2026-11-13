@@ -12,7 +12,7 @@ ClassDescription >> packageTagName [
 
 	| tagName |
 	tagName := self packageTag name.
-	^ tagName = self packageName
+	^ tagName = self package name
 		  ifTrue: [ #Uncategorized ]
 		  ifFalse: [ tagName ]
 ]

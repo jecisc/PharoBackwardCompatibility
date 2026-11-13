@@ -76,6 +76,9 @@ This brings mutiple features to Pharo <= 8.
 This brings features to Pharo <= 10.
 
 - `RBProgramNode>>#formattedCodeIn:` formats a node with the formatter of the class it is in, which `ClassDescription>>#formatter` answers from the package manifest, or `PackageManifest class>>#formatter` with the default one.
+- `Behavior>>#parseTreeForSelector:` returns the parse tree of one of the methods of a class.
+- `RBRefactoring>>#performChanges` performs the changes a refactoring computed, and records them so they can be undone.
+- `SocketError` is the error Pharo 11 signals when a socket primitive fails.
 - `EFContext>>#numberOfNewLinesAfterMethodSignatureWithMethodComment:` is accepted so that a formatter can be configured as in Pharo 11, but ignored: the formatter of Pharo 10 puts the same number of new lines after the signature of every method, which the getter answers.
 
 ### Up to Pharo 11
