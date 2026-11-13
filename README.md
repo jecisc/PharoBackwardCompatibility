@@ -102,7 +102,7 @@ This brings mutiple features to Pharo <= 11.
 - `RPackageOrganizer>>#removePackage:` removes a package and its content from the system by providing a name or a package.
 - `RPackage>>#ensureTag:` and `RPackage>>#hasTag:` return the tag of a package, adding it if needed, and tell whether a package has a tag, by providing a name or a tag. `Uncategorized` names the tag of the classes that have none.
 - `RPackage>>#isUndefined` returns false: Pharo 12 files a class that belongs to no package in an undefined package, and before it every package is defined.
-- `RBMoveClassTransformation class>>#move:toPackage:` and `RBMoveClassTransformation class>>#move:toPackage:inTag:` move a class to a package, and to a tag of it.
+- `RBMoveClassTransformation class>>#move:toPackage:` and `RBMoveClassTransformation class>>#move:toPackage:inTag:` move a class to a package, and to a tag of it. As in Pharo 12, the package and tag must exist: Pharo 11 reads them as a category, and files the class under any package whose name begins that category.
 - `BlockClosure>>#valueWithinMilliseconds:onTimeout:` evaluates a block, or the timeout block if it does not complete in the given number of milliseconds.
 - `ReAbstractRule>>#shouldCheckMethod:` is the hook a rule answers to skip methods it does not need to check, and answers true.
 - `IceWorkingCopy>>#packageNamed:ifAbsent:` returns the package of a working copy, or the result of a block when it has none by that name.
