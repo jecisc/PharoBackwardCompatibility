@@ -92,6 +92,8 @@ This brings mutiple features to Pharo <= 11.
 - `RPackage>>#isUndefined` returns false: Pharo 12 files a class that belongs to no package in an undefined package, and before it every package is defined.
 - `RBMoveClassTransformation class>>#move:toPackage:` and `RBMoveClassTransformation class>>#move:toPackage:inTag:` move a class to a package, and to a tag of it.
 - `BlockClosure>>#valueWithinMilliseconds:onTimeout:` evaluates a block, or the timeout block if it does not complete in the given number of milliseconds.
+- `ReAbstractRule>>#shouldCheckMethod:` is the hook a rule answers to skip methods it does not need to check, and answers true.
+- `IceWorkingCopy>>#packageNamed:ifAbsent:` returns the package of a working copy, or the result of a block when it has none by that name.
 - Alias `RBRenameClassRefactoring`, `RBRenameMethodRefactoring`, `RBRemoveClassRefactoring` and `RBRemoveInstanceVariableRefactoring` into `ReRenameClassRefactoring`, `ReRenameMethodRefactoring`, `ReRemoveClassRefactoring` and `ReRemoveInstanceVariableRefactoring`.
 
 
