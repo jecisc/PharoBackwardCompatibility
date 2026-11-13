@@ -26,3 +26,13 @@ RPackageOrganizer >> packageNamed: aString ifPresent: aBlock [
 
 	^ (self packageNamed: aString ifAbsent: [ nil ]) ifNotNil: [ :package | aBlock cull: package ]
 ]
+
+{ #category : #'*PharoBackwardCompatibility-UpTo11' }
+RPackageOrganizer >> removePackage: aPackage [
+
+	self
+		packageNamed: (aPackage isString
+				 ifTrue: [ aPackage ]
+				 ifFalse: [ aPackage name ])
+		ifPresent: [ :package | package removeFromSystem ]
+]

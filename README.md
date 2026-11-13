@@ -85,6 +85,11 @@ This brings mutiple features to Pharo <= 11.
 - `Behavior/TraitedClass/TraitedMetaclass>>includesTrait:` allows to know if a class includes a specific trait. I also backported a speed up of this method.
 - `ClassDescription >> protocolNamed:` allows one to get a Protocol object from its name.
 - `Pragma>>hasArgument:` allows one to know if a pragma has a specific argument.
+- `ClassDescription>>#packageName` and `ClassDescription>>#packageTagName` return the name of the package and of the package tag of a class.
+- `RPackage>>#tagNames` returns the names of the tags of a package.
+- `RPackageOrganizer>>#removePackage:` removes a package and its content from the system by providing a name or a package.
+- `BlockClosure>>#valueWithinMilliseconds:onTimeout:` evaluates a block, or the timeout block if it does not complete in the given number of milliseconds.
+- Alias `RBRenameClassRefactoring`, `RBRenameMethodRefactoring`, `RBRemoveClassRefactoring` and `RBRemoveInstanceVariableRefactoring` into `ReRenameClassRefactoring`, `ReRenameMethodRefactoring`, `ReRemoveClassRefactoring` and `ReRemoveInstanceVariableRefactoring`.
 
 
 ### Up to Pharo 12
