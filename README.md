@@ -10,6 +10,7 @@ The goal is to be able to use the latest API without breaking compatibility with
 		- [Up to Pharo 6](#up-to-pharo-6)
 		- [Up to Pharo 7](#up-to-pharo-7)
 		- [Up to Pharo 8](#up-to-pharo-8)
+		- [Up to Pharo 10](#up-to-pharo-10)
 		- [Up to Pharo 11](#up-to-pharo-11)
 		- [Up to Pharo 12](#up-to-pharo-12)
 		- [Up to Pharo 13](#up-to-pharo-13)
@@ -69,6 +70,13 @@ This brings mutiple features to Pharo <= 8.
 - `AbstractFileReference>>#ifExists:` allows one to execute a block only if a file exists.
 - `AbstractFileReference>>#ifAbsent:` allows one to execute a block only if a file does not exists.
 - `AbstractFileReference>>#ifExists:ifAbsent:` allows one to execute a different code if a file exist or not.
+
+### Up to Pharo 10
+
+This brings features to Pharo <= 10.
+
+- `RBProgramNode>>#formattedCodeIn:` formats a node with the formatter of the class it is in, which `ClassDescription>>#formatter` answers from the package manifest, or `PackageManifest class>>#formatter` with the default one.
+- `EFContext>>#numberOfNewLinesAfterMethodSignatureWithMethodComment:` is accepted so that a formatter can be configured as in Pharo 11, but ignored: the formatter of Pharo 10 puts the same number of new lines after the signature of every method, which the getter answers.
 
 ### Up to Pharo 11
 
