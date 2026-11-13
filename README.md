@@ -88,6 +88,7 @@ This brings mutiple features to Pharo <= 11.
 - `ClassDescription>>#packageName` and `ClassDescription>>#packageTagName` return the name of the package and of the package tag of a class.
 - `RPackage>>#tagNames` returns the names of the tags of a package.
 - `RPackageOrganizer>>#removePackage:` removes a package and its content from the system by providing a name or a package.
+- `RPackage>>#ensureTag:` and `RPackage>>#hasTag:` return the tag of a package, adding it if needed, and tell whether a package has a tag, by providing a name or a tag.
 - `RPackage>>#isUndefined` returns false: Pharo 12 files a class that belongs to no package in an undefined package, and before it every package is defined.
 - `RBMoveClassTransformation class>>#move:toPackage:` and `RBMoveClassTransformation class>>#move:toPackage:inTag:` move a class to a package, and to a tag of it.
 - `BlockClosure>>#valueWithinMilliseconds:onTimeout:` evaluates a block, or the timeout block if it does not complete in the given number of milliseconds.
