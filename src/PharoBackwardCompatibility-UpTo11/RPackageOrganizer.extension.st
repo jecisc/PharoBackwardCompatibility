@@ -2,12 +2,16 @@ Extension { #name : #RPackageOrganizer }
 
 { #category : #'*PharoBackwardCompatibility-UpTo11' }
 RPackageOrganizer >> ensurePackage: aPackage [
+	"Answer the package of that name, or a package object, registering it first when the organizer does not have it yet."
 
-	| package |
-	package := aPackage isString
-		           ifTrue: [ RPackage named: aPackage ]
-		           ifFalse: [ aPackage ].
-	^ self registerPackage: package
+	^ self
+		  packageNamed: (aPackage isString
+				   ifTrue: [ aPackage ]
+				   ifFalse: [ aPackage name ]) asSymbol
+		  ifAbsent: [
+			  self registerPackage: (aPackage isString
+					   ifTrue: [ RPackage named: aPackage ]
+					   ifFalse: [ aPackage ]) ]
 ]
 
 { #category : #'*PharoBackwardCompatibility-UpTo11' }
@@ -25,4 +29,14 @@ RPackageOrganizer >> hasPackage: aPackage [
 RPackageOrganizer >> packageNamed: aString ifPresent: aBlock [
 
 	^ (self packageNamed: aString ifAbsent: [ nil ]) ifNotNil: [ :package | aBlock cull: package ]
+]
+
+{ #category : #'*PharoBackwardCompatibility-UpTo11' }
+RPackageOrganizer >> removePackage: aPackage [
+
+	self
+		packageNamed: (aPackage isString
+				 ifTrue: [ aPackage ]
+				 ifFalse: [ aPackage name ])
+		ifPresent: [ :package | package removeFromSystem ]
 ]

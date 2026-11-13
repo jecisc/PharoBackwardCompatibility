@@ -10,6 +10,7 @@ The goal is to be able to use the latest API without breaking compatibility with
 		- [Up to Pharo 6](#up-to-pharo-6)
 		- [Up to Pharo 7](#up-to-pharo-7)
 		- [Up to Pharo 8](#up-to-pharo-8)
+		- [Up to Pharo 10](#up-to-pharo-10)
 		- [Up to Pharo 11](#up-to-pharo-11)
 		- [Up to Pharo 12](#up-to-pharo-12)
 		- [Up to Pharo 13](#up-to-pharo-13)
@@ -70,6 +71,16 @@ This brings mutiple features to Pharo <= 8.
 - `AbstractFileReference>>#ifAbsent:` allows one to execute a block only if a file does not exists.
 - `AbstractFileReference>>#ifExists:ifAbsent:` allows one to execute a different code if a file exist or not.
 
+### Up to Pharo 10
+
+This brings features to Pharo <= 10.
+
+- `RBProgramNode>>#formattedCodeIn:` formats a node with the formatter of the class it is in, which `ClassDescription>>#formatter` answers from the package manifest, or `PackageManifest class>>#formatter` with the default one.
+- `Behavior>>#parseTreeForSelector:` returns the parse tree of one of the methods of a class.
+- `RBRefactoring>>#performChanges` performs the changes a refactoring computed, and records them so they can be undone.
+- `SocketError` is the error Pharo 11 signals when a socket primitive fails.
+- `EFContext>>#numberOfNewLinesAfterMethodSignatureWithMethodComment:` is accepted so that a formatter can be configured as in Pharo 11, but ignored: the formatter of Pharo 10 puts the same number of new lines after the signature of every method, which the getter answers.
+
 ### Up to Pharo 11
 
 This brings mutiple features to Pharo <= 11.
@@ -80,11 +91,24 @@ This brings mutiple features to Pharo <= 11.
 - `RPackageOrganizer>>#packageNamed:ifPresent:` allows one to execute a block with a package as parameter if the package of a certain name exists in the system.
 - `Class>>#packageTag`/`Metaclass>>#packageTag` returns an instance of `RPackageTag` corresponding to the tag of the class.
 - `ShiftClassBuilder>>#traits:` allows to set the trait composition of a class builder with the same API than the fluid syntax (In P12 FluidClassBuilder and ShiftClassBuilder are merged).
+- `ShiftClassBuilder>>#install` installs the class a builder describes, as the fluid class builder does.
 - `ShiftClassBuilder>>#tag:` allows to set the tag of a class. This will happend the tag to the category name with a dash because P11 is not able to really manipulate the tags but this should make the API compatible between P12 and P11. Note that this method should be called after #package: or #category: since it happens the tag to what is already set. 
 - `CompiledMethod>>protocolName` allows one to get the protocol name of a method. Up to P11 #protocol was returning the name, but in P12 it returns the real protocol object.
 - `Behavior/TraitedClass/TraitedMetaclass>>includesTrait:` allows to know if a class includes a specific trait. I also backported a speed up of this method.
 - `ClassDescription >> protocolNamed:` allows one to get a Protocol object from its name.
 - `Pragma>>hasArgument:` allows one to know if a pragma has a specific argument.
+- `ClassDescription>>#packageName` and `ClassDescription>>#packageTagName` return the name of the package and of the package tag of a class. As in Pharo 12, the tag of a class that has none is named `Uncategorized`, where Pharo 11 names it after the package.
+- `RPackage>>#tagNames` returns the names of the tags of a package, with `Uncategorized` for the tag of the classes that have none.
+- `RPackageOrganizer>>#removePackage:` removes a package and its content from the system by providing a name or a package.
+- `RPackage>>#ensureTag:` and `RPackage>>#hasTag:` return the tag of a package, adding it if needed, and tell whether a package has a tag, by providing a name or a tag. `Uncategorized` names the tag of the classes that have none.
+- `RPackage>>#isUndefined` returns false: Pharo 12 files a class that belongs to no package in an undefined package, and before it every package is defined.
+- `RBMoveClassTransformation class>>#move:toPackage:` and `RBMoveClassTransformation class>>#move:toPackage:inTag:` move a class to a package, and to a tag of it. As in Pharo 12, the package and tag must exist: Pharo 11 reads them as a category, and files the class under any package whose name begins that category.
+- `BlockClosure>>#valueWithinMilliseconds:onTimeout:` evaluates a block, or the timeout block if it does not complete in the given number of milliseconds.
+- `ReAbstractRule>>#shouldCheckMethod:` is the hook a rule answers to skip methods it does not need to check, and answers true.
+- `IceWorkingCopy>>#packageNamed:ifAbsent:` returns the package of a working copy, or the result of a block when it has none by that name.
+- `Variable>>#isPseudoVariable` tells whether a variable is `self`, `super` or `thisContext`, which Pharo 12 calls pseudo-variables and Pharo 11 reserved variables.
+- `ClassDescription>>#whichMethodsAccess:` returns the methods of a class that access an instance variable.
+- Alias `RBRenameClassRefactoring`, `RBRenameMethodRefactoring`, `RBRemoveClassRefactoring` and `RBRemoveInstanceVariableRefactoring` into `ReRenameClassRefactoring`, `ReRenameMethodRefactoring`, `ReRemoveClassRefactoring` and `ReRemoveInstanceVariableRefactoring`.
 
 
 ### Up to Pharo 12

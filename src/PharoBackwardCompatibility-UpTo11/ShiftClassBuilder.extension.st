@@ -1,6 +1,13 @@
 Extension { #name : #ShiftClassBuilder }
 
 { #category : #'*PharoBackwardCompatibility-UpTo11' }
+ShiftClassBuilder >> install [
+	"Install the class in the system environment"
+
+	^ ShiftClassInstaller new makeWithBuilder: self
+]
+
+{ #category : #'*PharoBackwardCompatibility-UpTo11' }
 ShiftClassBuilder >> tag: aString [
 
 	aString ifNil: [ ^ self ].

@@ -23,6 +23,8 @@ BaselineOfPharoBackwardCompatibility >> baseline: spec [
 
 	spec for: (self pharoVersionsUpTo: 8) do: [ spec package: 'PharoBackwardCompatibility-UpTo8' ].
 
+	spec for: (self pharoVersionsUpTo: 10) do: [ spec package: 'PharoBackwardCompatibility-UpTo10' ].
+
 	spec for: (self pharoVersionsUpTo: 11) do: [ spec package: 'PharoBackwardCompatibility-UpTo11' ].
 
 	spec for: #'pharo12.x' do: [ spec package: 'PharoBackwardCompatibility-12' ].
@@ -51,8 +53,20 @@ BaselineOfPharoBackwardCompatibility >> pharoVersionsUpTo: aVersion [
 { #category : 'baseline' }
 BaselineOfPharoBackwardCompatibility >> postLoad [
 
+	(self isPharoVersionUpTo: 11) ifTrue: [ self postLoadUpTo11 ].
 	(self isPharoVersionUpTo: 12) ifTrue: [ self postLoadUpTo12 ].
 	(self isPharoVersionUpTo: 13) ifTrue: [ self postLoadUpTo13 ]
+]
+
+{ #category : 'baseline' }
+BaselineOfPharoBackwardCompatibility >> postLoadUpTo11 [
+
+	self class environment at: #ReRenameClassRefactoring put: (self class environment at: #RBRenameClassRefactoring).
+	self class environment at: #ReRenameMethodRefactoring put: (self class environment at: #RBRenameMethodRefactoring).
+	self class environment at: #ReRemoveClassRefactoring put: (self class environment at: #RBRemoveClassRefactoring).
+	self class environment
+		at: #ReRemoveInstanceVariableRefactoring
+		put: (self class environment at: #RBRemoveInstanceVariableRefactoring)
 ]
 
 { #category : 'baseline' }
