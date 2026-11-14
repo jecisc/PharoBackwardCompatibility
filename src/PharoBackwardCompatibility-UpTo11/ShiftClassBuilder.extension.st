@@ -8,6 +8,20 @@ ShiftClassBuilder >> install [
 ]
 
 { #category : #'*PharoBackwardCompatibility-UpTo11' }
+ShiftClassBuilder >> sharedPoolsFromString: aString [
+	"Set the shared pools of the class from their names separated by spaces, as in an old style class definition"
+
+	self sharedPools: aString
+]
+
+{ #category : #'*PharoBackwardCompatibility-UpTo11' }
+ShiftClassBuilder >> slotsFromString: aString [
+	"Set the slots of the class from their names separated by spaces, as in an old style class definition"
+
+	self slots: aString asSlotCollection
+]
+
+{ #category : #'*PharoBackwardCompatibility-UpTo11' }
 ShiftClassBuilder >> tag: aString [
 
 	aString ifNil: [ ^ self ].

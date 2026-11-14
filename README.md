@@ -108,6 +108,12 @@ This brings mutiple features to Pharo <= 11.
 - `IceWorkingCopy>>#packageNamed:ifAbsent:` returns the package of a working copy, or the result of a block when it has none by that name.
 - `Variable>>#isPseudoVariable` tells whether a variable is `self`, `super` or `thisContext`, which Pharo 12 calls pseudo-variables and Pharo 11 reserved variables.
 - `ClassDescription>>#whichMethodsAccess:` returns the methods of a class that access an instance variable.
+- `CompiledCode class>>#basicNew:header:` creates a compiled method or block of a given size and header. Pharo 12 renamed `#newMethod:header:` into this method.
+- `ShiftClassBuilder>>#slotsFromString:` and `ShiftClassBuilder>>#sharedPoolsFromString:` set the slots and the shared pools of a class builder from their names separated by spaces, as in an old style class definition.
+- `Behavior>>#codeChangeAnnouncer` returns the announcer of the code changes. In Pharo 12 it replaces `SystemAnnouncer uniqueInstance`.
+- `SystemAnnouncer>>#delayAnnouncementsAfter:` executes a block and announces at once all the announcements made during its execution.
+- `AdditionalMethodState class>>#propertiesToPersist` returns the method properties that Pharo 12 copies from the old version of a method to the new one when it is recompiled. It is empty since older versions keep no property.
+- `OpalCompiler>>#permitUndeclared:` tells the compiler to accept undeclared variables, which Pharo 14 refuses by default. Older versions always accept them, so it does nothing.
 - Alias `RBRenameClassRefactoring`, `RBRenameMethodRefactoring`, `RBRemoveClassRefactoring` and `RBRemoveInstanceVariableRefactoring` into `ReRenameClassRefactoring`, `ReRenameMethodRefactoring`, `ReRemoveClassRefactoring` and `ReRemoveInstanceVariableRefactoring`.
 
 
@@ -118,6 +124,7 @@ This brings features to Pharo <= 12.
 - `String>>#withPlatformLineEndings` allows to replace the line returns of a String by the ones used by the current platform.
 - `SpTActionContainer>>e#nsureInternalActions` allows to stay compatible with the rename of `#ensureActionGroup`.
 - `Color class>>#R:G:B:`, `Color class>>#R:G:B:A:`, `Color>>#contrast:`, `Color>>#isContrastCompliantForISO92413:`, `Color>>#isContrastCompliantForWCAG2AA:`, `Color>>#isContrastCompliantForWCAG2AAA:`, `Color>>#relativeLuminance` : Those methods are conveniance methods introduced on Color in Pharo 13.
+- `Class>>#undeclaredRegistry` returns the registry of the undeclared variables. In Pharo 13 it replaces the global `Undeclared`.
 - Alias `RBPullUpInstanceVariableRefactoring` into `RePullUpInstanceVariableRefactoring`.
 
 ### Up to Pharo 13
@@ -129,6 +136,7 @@ This brings features to Pharo <= 13.
 - `Object>>#threeWayCompareTo:` allows to compare any entity even if they do not override the method.
 - `Context>>temporaryVariableNames` allows to get the name of temporaries in the context (was `#tempNames` before).
 - `Context>>stackTraceString`, `Context>>printStackTraceOn:`, and `Context>>withSendersDo:` provide Pharo 14 stack traversal and printing through the bottom context.
+- `ClassDescription>>#methodInstaller` returns an `OCMethodInstaller` installing compiled methods in a class with `#protocol:` and `#install:into:compiler:`, the API of Pharo 14 that replaces `#addAndClassifySelector:withMethod:inProtocol:`. Unlike in Pharo 14, it never writes the source code in the changes file, so `#logged:` has no effect.
 - Alias `RBRefactoryChangeManager` into `ReChangeManager`.
 - Alias `IceBranchAlreadyExistsError` into `IceBranchAlreadyExists`.
 
@@ -137,6 +145,7 @@ This brings features to Pharo <= 13.
 This brings features to Pharo <= 14.
 
 - `Object>>#traceNewLine`, `Object>>#traceNewLine:`, `Object>>#newLineTrace`, `Object>>#newLineTrace:` and `Object>>#traceNewLineTab:` are the Pharo 15 transcript tracing API that does not depend on the internal line ending of Pharo. They replace `#traceCr`, `#traceCr:`, `#crTrace`, `#crTrace:` and `#traceCrTab:` that are deprecated in Pharo 15.
+- `RGVariable>>#isSelfVariable`, `RGVariable>>#isSelfOrSuperVariable`, `RGVariable>>#isThisContextVariable` and `RGVariable>>#isThisProcessVariable` are sent by the compiler of Pharo 14 to the variables it binds, so they are needed to compile methods against Ring classes.
 
 ## Version management 
 
