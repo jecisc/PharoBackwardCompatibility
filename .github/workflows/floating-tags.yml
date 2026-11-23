@@ -1,7 +1,5 @@
 name: Floating tags
 
-# Publishing release vX.Y.Z moves vX.Y.x and vX.x.x to it, unless a later release already holds them.
-
 on:
   release:
     types: [ published ]
@@ -18,6 +16,4 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
-      - run: .github/scripts/move-floating-tags.sh "$RELEASE"
-        env:
-          RELEASE: ${{ github.event.release.tag_name }}
+      - uses: jecisc/floating-tags@v1
