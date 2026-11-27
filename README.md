@@ -125,6 +125,7 @@ This brings features to Pharo <= 12.
 - `SpTActionContainer>>e#nsureInternalActions` allows to stay compatible with the rename of `#ensureActionGroup`.
 - `Color class>>#R:G:B:`, `Color class>>#R:G:B:A:`, `Color>>#contrast:`, `Color>>#isContrastCompliantForISO92413:`, `Color>>#isContrastCompliantForWCAG2AA:`, `Color>>#isContrastCompliantForWCAG2AAA:`, `Color>>#relativeLuminance` : Those methods are conveniance methods introduced on Color in Pharo 13.
 - `Class>>#undeclaredRegistry` returns the registry of the undeclared variables. In Pharo 13 it replaces the global `Undeclared`.
+- `OpalCompiler>>#compiledBlockClass:` gives the compiler the class of the compiled blocks, which Pharo 13 looks up in the environment of the compiler unless it is given one, for example when compiling against Ring classes. Older versions always use `CompiledBlock`, so it does nothing.
 - Alias `RBPullUpInstanceVariableRefactoring` into `RePullUpInstanceVariableRefactoring`.
 
 ### Up to Pharo 13
